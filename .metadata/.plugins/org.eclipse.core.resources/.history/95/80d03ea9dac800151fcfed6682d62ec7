@@ -1,0 +1,20 @@
+package com.mafurag.org.clients.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.mafurag.org.clients.model.Client;
+
+public class ClientService {
+	
+	public List<Client> getAllClients(){
+		Client c1 = new Client(1L,	"First1", "Middle1", "Last1");
+		Client c2 = new Client(2L,	"First2", "Middle2", "Last2");
+		List<Client> list = new ArrayList<>();
+		list.add(c2);
+		list.add(c1);
+		return list;
+		
+	}
+
+}

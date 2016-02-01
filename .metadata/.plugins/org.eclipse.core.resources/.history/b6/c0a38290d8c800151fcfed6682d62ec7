@@ -1,0 +1,5 @@
+package com.mafurag.org.clients.database;
+
+public class DatabaseClass {
+
+}
