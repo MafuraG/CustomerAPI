@@ -22,7 +22,8 @@ public class ClientResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Client> getClients(){		
+	public List<Client> getClients(){
+		cs.createMocks();
 		return cs.getAllClients();
 	}
 	

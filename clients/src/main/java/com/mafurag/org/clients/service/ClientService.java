@@ -13,8 +13,10 @@ public class ClientService {
 	private Map<Long, Order> orders = DatabaseClass.getOrders();
 	
 	
-	public ClientService() {
-		super();
+	public ClientService() {		
+	}
+	
+	public void createMocks(){
 		Client c;
 		Order o;
 		Long order_count = (long) 0;
