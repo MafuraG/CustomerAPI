@@ -1,0 +1,5 @@
+package com.mafurag.clients.resources.beans;
+
+public class OrderFilterBean {
+
+}
