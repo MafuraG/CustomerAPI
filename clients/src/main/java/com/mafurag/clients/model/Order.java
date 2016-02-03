@@ -1,0 +1,46 @@
+package com.mafurag.clients.model;
+
+import javax.xml.bind.annotation.XmlRootElement;
+/**
+ * 
+ * @author MafuraG
+ *
+ */
+
+@XmlRootElement
+public class Order {
+	
+	private Long id;	
+	private String details ; 
+	private Long clientId;	
+	
+	public Order() {
+		super();
+	}
+	public Order(Long id, String details, long clientId) {
+		super();
+		this.id = id;
+		this.details = details;
+		this.setClientId(clientId);
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getDetails() {
+		return details;
+	}
+	public void setDetails(String details) {
+		this.details = details;
+	}
+	
+	public Long getClientId() {
+		return clientId;
+	}
+	public void setClientId(Long clientId) {
+		this.clientId = clientId;
+	}
+
+}

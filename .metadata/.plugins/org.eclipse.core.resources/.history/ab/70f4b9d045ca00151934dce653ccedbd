@@ -1,0 +1,56 @@
+package com.mafurag.org.clients.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import com.mafurag.org.clients.database.DatabaseClass;
+import com.mafurag.org.clients.model.Client;
+import com.mafurag.org.clients.model.Order;
+
+public class OrderService {	
+	
+	private Map<Long, Order> orders = DatabaseClass.getOrders();
+	private Map<Long, Client> clients = DatabaseClass.getClients();
+	private ClientService cs = new ClientService();
+	
+	
+	public List<Order> getOrders(Long clientId){
+		 /*Map<Integer, String> monthsWithLengthFour = 
+		            MONTHS.entrySet()
+		            .stream()
+		            .filter(p -> p.getValue().length() == 4)
+		            .collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue()));*/
+		Map<Long, Order> ordersByClients = 
+				orders.entrySet()
+				.stream()
+				.filter(p-> p.getValue().getClient().getId() == clientId)
+				.collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue() ));
+				
+		return new ArrayList<Order>(ordersByClients.values());
+	}
+	
+	public Order getOrder(Long id){
+		return orders.get(id);
+	}
+	
+	public Client addClient(Client client){
+		client.setId(clients.size());
+		clients.put(client.getId(), client);
+		return client;
+	}
+	
+	public Client updateClient(Client client){
+		if (client.getId() <= 0){
+			return null;
+		}
+		clients.put(client.getId(), client);
+		return client;
+	}
+	
+	public void removeClient(Long clientId){
+		clients.remove(clientId);
+	}
+
+}
