@@ -2,3 +2,6 @@
 1454483941084	Delete element
 1454486002470	Rename package 'com.mafurag.org.clients'
 1454493176252	Encapsulate field 'clientId'
+1454495588089	Encapsulate field 'date'
+1454497104851	Rename method 'getAllOrderPaginated'
+1454497126943	Rename method 'getOrdersByYear'

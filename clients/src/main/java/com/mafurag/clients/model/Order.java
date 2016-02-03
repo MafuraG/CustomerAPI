@@ -1,5 +1,7 @@
 package com.mafurag.clients.model;
 
+import java.util.Date;
+
 import javax.xml.bind.annotation.XmlRootElement;
 /**
  * 
@@ -12,7 +14,8 @@ public class Order {
 	
 	private Long id;	
 	private String details ; 
-	private Long clientId;	
+	private Long clientId;
+	private Date date;
 	
 	public Order() {
 		super();
@@ -22,6 +25,7 @@ public class Order {
 		this.id = id;
 		this.details = details;
 		this.setClientId(clientId);
+		this.date = new Date();
 	}
 	public Long getId() {
 		return id;
@@ -41,6 +45,12 @@ public class Order {
 	}
 	public void setClientId(Long clientId) {
 		this.clientId = clientId;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 }

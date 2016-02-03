@@ -1,0 +1,37 @@
+package com.mafurag.clients.resources;
+
+import java.util.List;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
+
+import com.mafurag.clients.model.Order;
+import com.mafurag.clients.service.OrderService;
+
+@Path("/orders")
+public class OrderResource {
+	
+	OrderService os = new OrderService();
+
+	/**
+	 * Method gets list of ALL orders 
+	 * @param clientId
+	 * @return list of orders made by client
+	 */
+	@GET	
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Order> getOrders(@QueryParam("year") int year,
+								 @QueryParam("start") int start,
+								 @QueryParam("size") int size){	
+		//ObjectMapper mapper = new ObjectMapper();
+		if (year > 0) return os.getOrdersByYear(year);
+		if (start > 0 && size > 0) return os.getAllOrderPaginated(start, size);
+		
+		return null;
+	}
+
+}

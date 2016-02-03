@@ -1,6 +1,7 @@
 package com.mafurag.clients.service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -27,6 +28,28 @@ public class OrderService {
 				.collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue() ));
 				
 		return new ArrayList<Order>(ordersByClients.values());
+	}
+	
+	public List<Order> getAllOrders(){
+		return new ArrayList<Order>(orders.values());
+	}
+	
+	public List<Order> getOrdersForYear(int year){
+		List<Order> ordersByYear = new ArrayList<Order>();
+		Calendar cal = Calendar.getInstance();
+		for(Order order:orders.values()){
+			cal.setTime(order.getDate());
+			if (cal.get(Calendar.YEAR) == year){
+				ordersByYear.add(order);
+			}
+		}
+		return ordersByYear;
+	}
+	
+	public List<Order> getAllOrdersPaginated(int start, int size){
+		List<Order> list= getAllOrders();
+		if (start + size > list.size()) return new ArrayList<Order>();
+		return list.subList(start, start + size);
 	}
 	
 	public Order getOrder(Long id){
