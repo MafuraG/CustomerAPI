@@ -5,3 +5,4 @@
 1454495588089	Encapsulate field 'date'
 1454497104851	Rename method 'getAllOrderPaginated'
 1454497126943	Rename method 'getOrdersByYear'
+1454501043172	Rename type 'OrderResource'

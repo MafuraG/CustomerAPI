@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.ws.rs.Path"/>
-<fullyQualifiedTypeName name="javax.ws.rs.GET"/>
-<fullyQualifiedTypeName name="javax.ws.rs.core.MediaType"/>
-<fullyQualifiedTypeName name="javax.ws.rs.Produces"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="com.mafurag.org.clients.service.ClientService"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="com.mafurag.org.clients.model.Client"/>
 <fullyQualifiedTypeName name="javax.xml.bind.annotation.XmlRootElement"/>
@@ -22,4 +17,13 @@
 <fullyQualifiedTypeName name="com.mafurag.org.clients.resources.ClientResource"/>
 <fullyQualifiedTypeName name="javax.ws.rs.core.GenericEntity"/>
 <fullyQualifiedTypeName name="javax.ws.rs.core.Response"/>
+<fullyQualifiedTypeName name="com.mafurag.clients.resources.OrderResource"/>
+<fullyQualifiedTypeName name="javax.ws.rs.GET"/>
+<fullyQualifiedTypeName name="javax.ws.rs.Produces"/>
+<fullyQualifiedTypeName name="javax.ws.rs.core.MediaType"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="com.mafurag.clients.resources.beans.OrderFilterBean"/>
+<fullyQualifiedTypeName name="com.mafurag.clients.model.Order"/>
+<fullyQualifiedTypeName name="javax.ws.rs.BeanParam"/>
+<fullyQualifiedTypeName name="javax.ws.rs.Path"/>
 </qualifiedTypeNameHistroy>

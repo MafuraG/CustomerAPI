@@ -66,3 +66,16 @@
 0:0:0:0:0:0:0:1 - - [03/Feb/2016:14:03:20 +0300] "GET /clients/webapi/orders?year=2016 HTTP/1.1" 200 10511
 0:0:0:0:0:0:0:1 - - [03/Feb/2016:14:03:41 +0300] "GET /clients/webapi/orders?start=10&size=3 HTTP/1.1" 200 316
 0:0:0:0:0:0:0:1 - - [03/Feb/2016:14:03:54 +0300] "GET /clients/webapi/orders?year=2016 HTTP/1.1" 200 10511
+127.0.0.1 - - [03/Feb/2016:15:09:53 +0300] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [03/Feb/2016:15:10:24 +0300] "GET /clients/webapi/orders?year=2016 HTTP/1.1" 200 2
+0:0:0:0:0:0:0:1 - - [03/Feb/2016:15:10:37 +0300] "GET /clients/webapi/clients/0/mock HTTP/1.1" 404 1010
+0:0:0:0:0:0:0:1 - - [03/Feb/2016:15:10:45 +0300] "GET /clients/webapi/clients/mock HTTP/1.1" 200 31
+0:0:0:0:0:0:0:1 - - [03/Feb/2016:15:10:53 +0300] "GET /clients/webapi/orders?year=2016 HTTP/1.1" 200 10411
+0:0:0:0:0:0:0:1 - - [03/Feb/2016:15:10:59 +0300] "GET /clients/webapi/orders?start=10&size=3 HTTP/1.1" 200 313
+0:0:0:0:0:0:0:1 - - [03/Feb/2016:15:11:06 +0300] "GET /clients/webapi/clients/8/90 HTTP/1.1" 404 1010
+0:0:0:0:0:0:0:1 - - [03/Feb/2016:15:11:18 +0300] "GET /clients/webapi/clients/8/orders HTTP/1.1" 200 1041
+0:0:0:0:0:0:0:1 - - [03/Feb/2016:15:11:29 +0300] "GET /clients/webapi/clients/8/orders/86 HTTP/1.1" 200 103
+0:0:0:0:0:0:0:1 - - [03/Feb/2016:15:11:36 +0300] "GET /clients/webapi/clients/85/orders/86 HTTP/1.1" 204 -
+0:0:0:0:0:0:0:1 - - [03/Feb/2016:15:11:44 +0300] "GET /clients/webapi/clients/ HTTP/1.1" 200 751
+0:0:0:0:0:0:0:1 - - [03/Feb/2016:15:11:58 +0300] "GET /clients/webapi/clients/2/orders HTTP/1.1" 200 1041
+0:0:0:0:0:0:0:1 - - [03/Feb/2016:15:12:36 +0300] "POST /clients/webapi/clients/2/orders HTTP/1.1" 400 1033

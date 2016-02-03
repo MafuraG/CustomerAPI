@@ -1,0 +1,110 @@
+package com.mafurag.clients.resources;
+
+import java.util.List;
+
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import com.mafurag.clients.model.Client;
+import com.mafurag.clients.model.Order;
+import com.mafurag.clients.service.ClientService;
+import com.mafurag.clients.service.OrderService;
+
+
+
+/**
+ * 
+ * @author MafuraG
+ *
+ */
+
+@Path("/clients")
+public class ClientResource {
+	
+	ClientService cs= new ClientService();
+	OrderService os = new OrderService();
+	/**
+	 * Creates mock clients and their orders
+	 */
+	@GET
+	@Path("/mock")
+	@Produces(MediaType.APPLICATION_JSON)
+	public String CreateMocks(){		
+		cs.createMocks();
+		return "Mock clients and orders created";
+	}
+	
+	/*
+	 * Get list of ALL clients
+	 */
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Client> getClients(){		
+		return cs.getAllClients();
+	}
+	
+	/**
+	 * 
+	 * @param clientId
+	 * @return client with given ID
+	 */
+	@GET
+	@Path("/{clientId}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Client getClient(@PathParam("clientId") Long clientId){
+		return cs.getClient(clientId);
+	}
+	
+	/**
+	 * Method creates new client
+	 * @param client
+	 * @return newly created client
+	 */
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Client addClient(Client client){
+		return cs.addClient(client);
+	}
+	
+	/**
+	 * Method updates a client
+	 * @param clientId
+	 * @param client
+	 * @return updated client
+	 */
+	@PUT
+	@Path("/{clientId}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public  Client updateClient(@PathParam("clientId") Long clientId, Client client){
+		client.setId(clientId);
+		return cs.updateClient(client);
+	}
+	
+	/**
+	 * Method deletes a client
+	 * @param clientId
+	 * @return message confirming deletion of client
+	 */
+	@DELETE
+	@Path("/{clientId}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public  String deleteClient(@PathParam("clientId") Long clientId){		
+		cs.removeClient(clientId);
+		return "Deleted client id = " + clientId;
+	}
+	
+	@Path("/{clientId}/orders")
+	public OrderResource getOrderResource(){
+		return new OrderResource();
+	}
+
+}

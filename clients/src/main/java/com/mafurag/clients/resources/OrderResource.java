@@ -16,7 +16,6 @@ import com.mafurag.clients.service.OrderService;
 public class OrderResource {
 	
 	OrderService os = new OrderService();
-
 	/**
 	 * 
 	 * @param year
@@ -33,5 +32,4 @@ public class OrderResource {
 		
 		return os.getAllOrders();
 	}
-
 }
