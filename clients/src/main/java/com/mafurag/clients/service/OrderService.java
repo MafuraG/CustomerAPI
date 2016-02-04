@@ -14,6 +14,7 @@ import com.mafurag.clients.database.DatabaseClass;
 import com.mafurag.clients.model.Client;
 import com.mafurag.clients.model.ErrorMessage;
 import com.mafurag.clients.model.Order;
+import java.util.Objects;
 
 public class OrderService {	
 	
@@ -21,18 +22,14 @@ public class OrderService {
 	private Map<Long, Client> clients = DatabaseClass.getClients();
 	
 	public List<Order> getOrders(Long clientId){
-		 /*Map<Integer, String> monthsWithLengthFour = 
-		            MONTHS.entrySet()
-		            .stream()
-		            .filter(p -> p.getValue().length() == 4)
-		            .collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue()));*/
-		Map<Long, Order> ordersByClients = 
-				orders.entrySet()
-				.stream()
-				.filter(p-> p.getValue().getClientId() == clientId)
-				.collect(Collectors.toMap(p -> p.getKey(), p -> p.getValue() ));
-				
-		return new ArrayList<Order>(ordersByClients.values());
+		 
+		List<Order> ordersByClients = new ArrayList<Order>();
+		for(Order order:orders.values()){
+			if (Objects.equals(order.getClientId(), clientId)){
+				ordersByClients.add(order);
+			}
+		}                
+		return ordersByClients;
 	}
 	
 	public List<Order> getAllOrders(){
