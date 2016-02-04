@@ -10,7 +10,9 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response.Status;
 
 import com.mafurag.clients.model.Order;
 import com.mafurag.clients.service.OrderService;
@@ -60,7 +62,7 @@ public class ClientOrdersResource {
 		Order o = os.getOrder(orderId);
 		if (o != null && o.getClientId() == clientId) return o;
 		else
-			return null; 
+			throw new WebApplicationException(Status.NOT_FOUND); 
 	}
 	
 	/**

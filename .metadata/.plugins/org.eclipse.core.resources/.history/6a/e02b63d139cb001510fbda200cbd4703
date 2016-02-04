@@ -1,0 +1,5 @@
+package com.mafurag.clients.exception;
+
+public class DataNotFoundExceptionMapper {
+
+}

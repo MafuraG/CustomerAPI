@@ -6,8 +6,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+
 import com.mafurag.clients.database.DatabaseClass;
 import com.mafurag.clients.model.Client;
+import com.mafurag.clients.model.ErrorMessage;
 import com.mafurag.clients.model.Order;
 
 public class OrderService {	
@@ -53,6 +58,14 @@ public class OrderService {
 	}
 	
 	public Order getOrder(Long id){
+		ErrorMessage errorMessage = new ErrorMessage("Not Found",404,"http://mysite.org");
+		Response response = Response.status(Status.NOT_FOUND)
+				.entity(errorMessage)
+				.build();
+		Order order = orders.get(id);
+		
+		if (order == null) 
+			throw new WebApplicationException(response);
 		return orders.get(id);
 	}
 	

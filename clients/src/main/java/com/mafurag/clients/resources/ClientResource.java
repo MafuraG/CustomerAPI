@@ -1,5 +1,6 @@
 package com.mafurag.clients.resources;
 
+import java.net.URI;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -10,7 +11,11 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+import javax.ws.rs.core.UriInfo;
 
 import com.mafurag.clients.model.Client;
 import com.mafurag.clients.service.ClientService;
@@ -69,10 +74,16 @@ public class ClientResource {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Client addClient(Client client){
-		return cs.addClient(client);
-	}
-	
+	public Response addClient(Client client, @Context UriInfo uriInfo){
+		//System.out.println("Called POST ");
+		Client newclient = cs.addClient(client);
+		String newId = String.valueOf(newclient.getId());		
+		URI uri = uriInfo.getAbsolutePathBuilder().path(newId).build();
+		//System.out.println(uri);
+		return Response.created(uri)
+				.entity(newclient)
+				.build();
+	}	
 	/**
 	 * Method updates a client
 	 * @param clientId

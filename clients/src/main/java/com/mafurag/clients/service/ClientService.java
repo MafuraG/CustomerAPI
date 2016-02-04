@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.mafurag.clients.database.DatabaseClass;
+import com.mafurag.clients.exception.DataNotFoundException;
 import com.mafurag.clients.model.Client;
 
 /**
@@ -29,7 +30,11 @@ public class ClientService {
 	}
 	
 	public Client getClient(Long id){
-		return clients.get(id);
+		Client client = clients.get(id);
+		if (client == null)
+			throw new DataNotFoundException("Client with id " + id + " not found");
+		
+		return client;
 	}
 	
 	public Client addClient(Client client){

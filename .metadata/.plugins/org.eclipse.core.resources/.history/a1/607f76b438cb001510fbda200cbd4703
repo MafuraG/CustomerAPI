@@ -1,0 +1,9 @@
+package com.mafurag.clients.model;
+
+public class ErrorMessage {
+	
+	private String errorMessage;
+	private int errorCode;
+	private String documentation;
+
+}
