@@ -62,8 +62,15 @@ public class ClientResource {
 	@GET
 	@Path("/{clientId}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Client getClient(@PathParam("clientId") Long clientId){
-		return cs.getClient(clientId);
+	public Client getClient(@PathParam("clientId") Long clientId,@Context UriInfo uriInfo){
+		Client client = cs.getClient(clientId);
+		String uri = uriInfo.getBaseUriBuilder()
+							.path(ClientResource.class)
+							.path(Long.toString(client.getId()))
+							.build()
+							.toString();
+		client.addLink(uri, "self");
+		return client;
 	}
 	
 	/**

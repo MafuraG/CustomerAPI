@@ -1,0 +1,5 @@
+package com.mafurag.clients.model;
+
+public class Link {
+
+}

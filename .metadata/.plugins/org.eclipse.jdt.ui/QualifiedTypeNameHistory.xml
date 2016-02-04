@@ -19,7 +19,6 @@
 <fullyQualifiedTypeName name="javax.ws.rs.GET"/>
 <fullyQualifiedTypeName name="javax.ws.rs.Produces"/>
 <fullyQualifiedTypeName name="javax.ws.rs.core.MediaType"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.mafurag.clients.resources.beans.OrderFilterBean"/>
 <fullyQualifiedTypeName name="com.mafurag.clients.model.Order"/>
 <fullyQualifiedTypeName name="javax.ws.rs.BeanParam"/>
@@ -35,4 +34,5 @@
 <fullyQualifiedTypeName name="javax.ws.rs.ext.Provider"/>
 <fullyQualifiedTypeName name="javax.ws.rs.core.Response.Status"/>
 <fullyQualifiedTypeName name="javax.ws.rs.WebApplicationException"/>
+<fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>
